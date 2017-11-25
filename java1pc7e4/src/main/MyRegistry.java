@@ -1,0 +1,27 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package main;
+
+import java.util.HashMap;
+import java.util.Map;
+
+/**
+ *
+ * @author student
+ */
+public class MyRegistry {
+    private MyRegistry() {}
+    
+    private static Map<Integer, MyRegistry> REGISTRY 
+            = new HashMap<>();
+    
+    public static MyRegistry getInstance(Integer key) {
+        if (!REGISTRY.containsKey(key)) {
+            REGISTRY.put(key, new MyRegistry());
+        }
+        return REGISTRY.get(key);
+    }
+}
